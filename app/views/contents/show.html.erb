@@ -10,7 +10,7 @@
 <hr>
 
 <%#= form_for @comment, url: content_comments_path(content_id: @content.id ) do |f| %>
-<%= form_for [@content, Comment.new] do |f| %>
+<br><%= form_for [@content, Comment.new] do |f| %>
     <%= f.text_area :body %>
     <%= f.submit %>
 <% end %>

@@ -1,4 +1,6 @@
 class ContentsController < ApplicationController
+  before_action :authorize, only: [:new, :edit, :update, :destroy]
+  
   def index
     @contents = Content.all
     
@@ -43,8 +45,12 @@ class ContentsController < ApplicationController
   
   private
   
+  def authorize
+    redirect_to new_session_path if current_user.nil?
+  end
+  
   def content_params
-    params.require(:content).permit(:title, :body)
+    params.require(:content).permit(:title, :body, :user_id)
   end
   
   
