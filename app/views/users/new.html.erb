@@ -1,8 +1,10 @@
 <h1>회원가입</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 <%= form_for @user do |f| %>
-    E-mail <br><%= f.email_field :email %><br>
-    Password <br> <%= f.password_field :password %><br>
-    Password Confirmation <br> <%= f.password_field :password_confirmation %><br><br>
+    E-mail <br><%= f.email_field :email %><br><br>
+    Name <br><%= f.text_field :name %><br><br>
+    Nickname <br><%= f.text_field :nickname %><br><br>
+    Password <br> <%= f.password_field :password %><br><br>
+    Password Confirmation <br> <%= f.password_field :password_confirmation %><br><br><br>
     <%= f.submit '회원가입하기' %>
 <% end %>

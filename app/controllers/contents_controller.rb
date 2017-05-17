@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :authorize, only: [:new, :edit, :update, :destroy]
+  load_and_authorize_resource
   
   def index
     @contents = Content.all
@@ -26,6 +27,8 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
+    authorize! :update, @content
+    
   end
 
   def update
